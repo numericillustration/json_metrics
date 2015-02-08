@@ -16,35 +16,35 @@ Installation and Configuration
  * Put json_metrics.js into your statsd backends directory
  * Add it to the backends array and its config parameter hash to your statsd config file.  Everything but the json_metrics section is detailed in the statsd config documentation.  json_metrics accepts an array of host/port combos to forward data to multiple other hosts like some other statsd backends.  The context hash is any key/value data you want sent along with the aggregated data.  I put it in for the sake of identifying hosts across NAT but it is an arbitrary key value hash that just gets sent along in the json data.    
 
-{
-    "port": 8125
-    ,"automaticConfigReload": false
-    ,"debug": false
-    ,"log": {
-        "backend": "stdout"
-       ,"level": "info"
-    }
-    ,"flushInterval": "10000"
-    ,"dump": "false"
-    ,"deleteIdleStats": "true"
-    ,"backends": [
-        "./backends/json_metrics"
-    ]
-    ,"flushInterval": 10000
-    ,"dumpMessages": false
-    ,"json_metrics": {
-        "hosts":[
-            {"host":"10.7.0.1","port":"666"}
-            ,{"host":"192.168.1.42","port":"42"}
+    {
+        "port": 8125
+        ,"automaticConfigReload": false
+        ,"debug": false
+        ,"log": {
+            "backend": "stdout"
+           ,"level": "info"
+        }
+        ,"flushInterval": "10000"
+        ,"dump": "false"
+        ,"deleteIdleStats": "true"
+        ,"backends": [
+            "./backends/json_metrics"
         ]
-        ,"context":{
-            "name":"fancy_hostname"
-            ,"nodeid":"i-<idnumgoeshere>"
-            ,"region":"<an AWS region>"
-            ,"chef_environment":"foo"
+        ,"flushInterval": 10000
+        ,"dumpMessages": false
+        ,"json_metrics": {
+            "hosts":[
+                {"host":"10.7.0.1","port":"666"}
+                ,{"host":"192.168.1.42","port":"42"}
+            ]
+            ,"context":{
+                "name":"fancy_hostname"
+                ,"nodeid":"i-<idnumgoeshere>"
+                ,"region":"<an AWS region>"
+                ,"chef_environment":"foo"
+            }
         }
     }
-}
 
 * Start the statsd daemon:
 
