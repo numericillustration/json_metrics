@@ -25,7 +25,6 @@ Installation and Configuration
         "backend": "stdout"
        ,"level": "info"
     }
-    ,"flushInterval": "10000"
     ,"dump": "false"
     ,"deleteIdleStats": "true"
     ,"backends": [
